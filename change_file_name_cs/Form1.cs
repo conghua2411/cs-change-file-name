@@ -17,7 +17,8 @@ namespace change_file_name_cs
         {
             InitializeComponent();
         }
-
+        
+        // handle button search folder
         private void btn_searchDir_Click(object sender, EventArgs e)
         {
             var fbd = new FolderBrowserDialog();
@@ -30,8 +31,9 @@ namespace change_file_name_cs
             }
         }
 
+        // handle random charater or number.
         private static Random rnd = new Random();
-        // fileName : abc.xyz
+
         private string randomNameFileType(string file, int length, bool hasChar)
         {
             string newName = "";
@@ -65,6 +67,7 @@ namespace change_file_name_cs
             return newName + fileType;
         }
 
+        // function change name in single folder
         private void changeNameInFolder(string folderDir, int length, bool hasChar)
         {
             string[] files = Directory.GetFiles(folderDir);
@@ -101,6 +104,7 @@ namespace change_file_name_cs
             }
         }
 
+        // function change name in folder and sub folder
         private void changeFolderRecursion(string folderDir, int length, bool hasChar)
         {
             changeNameInFolder(folderDir, length, hasChar);
@@ -112,6 +116,7 @@ namespace change_file_name_cs
             }
         }
 
+        // validate textbox length
         private Boolean checkTextBoxLength(String tbLength)
         {
             if (string.IsNullOrEmpty(tbLength))
@@ -132,6 +137,7 @@ namespace change_file_name_cs
             return true;
         }
 
+        // handle button change
         private void btn_change_Click(object sender, EventArgs e)
         {
             if (!checkTextBoxLength(cb_nameLength.Text))
@@ -166,6 +172,7 @@ namespace change_file_name_cs
             }
         }
 
+        // handle button exit
         private void btn_exit_Click(object sender, EventArgs e)
         {
             this.Close();
