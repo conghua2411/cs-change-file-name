@@ -162,8 +162,10 @@ namespace change_file_name_cs
                 }
                 else
                 {
-                    changeNameInFolder(tb_dir.Text, length, cb_hasChar.Checked); 
+                    changeNameInFolder(tb_dir.Text, length, cb_hasChar.Checked);
                 }
+
+                MessageBox.Show(String.Format("folder {0} has been changed", tb_dir.Text));
 
             }
             else
@@ -176,6 +178,13 @@ namespace change_file_name_cs
         private void btn_exit_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            cb_nameLength.Text = "5";
+            cb_hasChar.Checked = true;
+            cb_recursion.Checked = true;
         }
     }
 }
